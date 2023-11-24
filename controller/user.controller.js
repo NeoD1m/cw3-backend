@@ -26,8 +26,7 @@ class UserController{
         res.json(user.rows[0])
     }
     async getLogin(req,res){
-        const username = req.params.username
-        const password = req.params.password
+        const {username,password} = req.query
         const user = await db.query('SELECT * FROM person where id = $1, password = $2', [username,password])
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
