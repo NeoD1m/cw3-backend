@@ -4,5 +4,6 @@ create TABLE person(
     wage INTEGER,
     about TEXT,
     email VARCHAR(255),
-    userimage BYTEA
+    userimage BYTEA,
+    password VARCHAR(255)
 );
