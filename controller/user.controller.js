@@ -34,6 +34,7 @@ class UserController{
     }
     async updateUsers(req,res){
         const {oldname,username,wage,about,email,password} = req.body
+        print(req.body)
         const userimage = Buffer.from(req.body["userimage"], 'base64');
         const user = await db.query('UPDATE person SET username = $1, wage = $2, about = $3, email = $4, userimage = $5, password = $6 WHERE username = $7;', [username,wage,about,email,userimage,password,oldname])
         res.json(user.rows[0])
